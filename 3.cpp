@@ -1,13 +1,20 @@
 #include <iostream>
 using namespace std;
-// Function template
+// Class template
 template <class T>
-T add(T a, T b) {
-    return a + b;
-}
+class Box {
+private:
+    T value;
+public:
+    void setValue(T v) { value = v; }
+    T getValue() { return value; }
+};
 int main() {
-    cout << "Sum of Integers: " << add(10, 20) << endl;
-    cout << "Sum of Doubles: " << add(3.5, 2.7) << endl;
-    cout << "Sum of Characters: " << add('A', (char)2) << endl; // 'A' + 2
+    Box<int> intBox;
+    Box<string> strBox;
+    intBox.setValue(100);
+    strBox.setValue("Hello Templates");
+    cout << "Integer Value: " << intBox.getValue() << endl;
+    cout << "String Value: " << strBox.getValue() << endl;
     return 0;
 }
